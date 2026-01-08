@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FFFFF0;
+  --color-beige: #F5F5DC;
+  --color-blush-pink: #FFD1DC;
+  --color-champagne-gold: #C29B40; 
+  
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--color-ivory);
+    color: #333;
+    font-family: var(--font-body);
+}
