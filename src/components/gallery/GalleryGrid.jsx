@@ -30,12 +30,13 @@ const GalleryGrid = ({ onImageClick }) => {
     }, [loading, hasMore]);
 
     // Handle Window Resize for Columns
+    // Handle Window Resize for Columns -- FORCE 4 Grid as per user request
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 1280) setNumColumns(4);
-            else if (window.innerWidth >= 1024) setNumColumns(3);
-            else if (window.innerWidth >= 768) setNumColumns(2);
-            else setNumColumns(1);
+            // User requested "One row 4 images" specifically "looks like a gallary in a phone"
+            // We force 4 columns regardless of screen size, or maybe adjust for very small screens if absolutely broken,
+            // but the request was specific for the phone screenshot look.
+            setNumColumns(4);
         };
 
         handleResize(); // Initial call
@@ -87,9 +88,9 @@ const GalleryGrid = ({ onImageClick }) => {
         <div className="w-full">
             <FilterBar activeCategory={activeCategory} onFilterChange={setActiveCategory} />
 
-            <div className="flex gap-6 px-4 items-start">
+            <div className="flex gap-1 px-1 items-start">
                 {columns.map((colImages, colIndex) => (
-                    <div key={colIndex} className="flex flex-col gap-6 flex-1">
+                    <div key={colIndex} className="flex flex-col gap-1 flex-1">
                         <AnimatePresence>
                             {colImages.map((img, imgIndex) => {
                                 // Start Intersection Observer on the LAST image of the LAST column (or simply last image effectively)

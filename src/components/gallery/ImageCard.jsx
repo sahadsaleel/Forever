@@ -13,7 +13,7 @@ const ImageCard = ({ image, onClick }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5 }}
-            className="relative mb-6 break-inside-avoid rounded-lg overflow-hidden group shadow-md"
+            className="relative break-inside-avoid rounded-sm overflow-hidden group shadow-md"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
